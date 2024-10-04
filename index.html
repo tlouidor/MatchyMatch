@@ -1,18 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Matchy Match</title>
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <h1>Matchy Match</h1>
-        <div class="grid-container"></div>
-        <p></p>
-        <div id="matchy-match"></div>
-        <script src="script.js"></script>
-        <img src="image.jpg">
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matchy Match</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+    <h1>Matchy Match!</h1>
+    <button class="timer" id="countdown-timer"><h2>Timer: <span id="countdown-lives">15</span></h2></button>
+    <h3 id="message">Click on a card to start</h3>
+
+    <div class="board">
+            <div class="cardContainer">
+                <div class="card" onclick="this.classList.toggle('flipped')" data-card="1">
+                    <div class="view front-view">
+                        <img src="images/default.jpg" atl="melon,banana,strawberry,etc!">
+                    </div>
+                    <div class="view back-view">
+                        <img src="images/image1.jpg" alt="red apple">
+                    </div>
+                </div>
+                <div class="card" onclick="this.classList.toggle('flipped')" data-card="1">
+                    <div class="view front-view">
+                        <img src="images/default.jpg" atl="melon,banana,strawberry,etc!">
+                    </div>
+                    <div class="view back-view">
+                        <img src="images/image1.jpg" alt="red apple">
+                    </div>
+                </div>
+                <div class="card" onclick="this.classList.toggle('flipped')" data-card="2">
+                    <div class="view front-view">
+                        <img src="images/default.jpg" atl="melon,banana,strawberry,etc!">
+                    </div>
+                    <div class="view back-view">
+                        <img src="images/image2.jpg" alt="orange orange">
+                    </div>
+                </div>
+                <div class="card" onclick="this.classList.toggle('flipped')" data-card="2">
+                    <div class="view front-view">
+                        <img src="images/default.jpg" atl="melon,banana,strawberry,etc!">
+                    </div>
+                    <div class="view back-view">
+                        <img src="images/image2.jpg" alt="orange orange">
+                    </div>
+                </div>
+                <div class="card" onclick="this.classList.toggle('flipped')" data-card="3">
+                    <div class="view front-view">
+                        <img src="images/default.jpg" atl="melon,banana,strawberry,etc!">
+                    </div>
+                    <div class="view back-view">
+                        <img src="images/image3.jpg" alt="yellow banana">
+                    </div>
+                </div>
+                <div class="card" onclick="this.classList.toggle('flipped')" data-card="3">
+                    <div class="view front-view">
+                        <img src="images/default.jpg" atl="melon,banana,strawberry,etc!">
+                    </div>
+                    <div class="view back-view">
+                        <img src="images/image3.jpg" alt="yellow banana">
+                    </div>
+                </div>
+            </div>
+        </div>
+    <button id="restartButton" style="display: flex;">Play Again</button>
+    <script src="js/app.js"></script>
+</body>
 </html>
+    

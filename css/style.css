@@ -1,0 +1,144 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: rgb(149, 149, 75);
+}
+
+.game-container {
+    height: 600px;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 80px;
+    padding: 150px 200px;
+    background: rgb(6, 77, 6);
+    border-radius: 1px;
+    margin: auto;
+    position: absolute;
+    top: 100px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    display: flex;
+    font-size: 35px;
+    color: black
+    font-family: 'Times New Roman', Times, serif;
+    flex-direction: row;
+    position: absolute;
+    top: 25px;
+    right: 100px
+}
+
+h2 {
+    color: rgb(91, 17, 50);
+    font-size: 25px;
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    flex-direction: row;
+    position: absolute;
+    top: 90px;
+    left: 260px
+}
+
+h3 {
+    font-size: 20px;
+    color: sienna;
+    display: flex;
+    font-family: 'Times New Roman', Times, serif;
+    flex-direction: row;
+    position: absolute;
+    top: 140px
+}
+
+.board {
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.cardContainer {
+    display: grid;
+    padding: 2px 16px;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(2, 100px);
+    gap: 30px;
+    margin: 50px auto;
+    align-items: center;
+    position: relative;
+    top: 20px;
+}
+
+.view {
+   width: 100%;
+   height: 100%;
+}
+
+.front-view, 
+.back-view {
+    position: absolute;
+    align-items: center;
+    transition: transform 0.7s ease-out;
+    backface-visibility: hidden;
+}
+
+.flipCard {
+    transform: rotateY(180deg);
+}
+
+.back-view {
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    margin-left: 10px;
+    flex-wrap: wrap;
+    border: 4px solid black;
+    position: relative;
+    /* transition: 0.3s; */
+}
+
+#restartButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 20px;
+    background-color: tan;
+    border-radius: 5px;
+    position: relative;
+    top: 0px;
+}
+
+#restartButton:hover {
+    cursor: pointer;
+    background-color: grey;
+    transition-delay: 1oms;
+}
+
+#hidden {
+    display: none;
+}
