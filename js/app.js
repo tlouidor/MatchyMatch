@@ -16,19 +16,25 @@ let lockBoard = false;
 let msg = ''
 let timeLeft = 15;
 let match = 0;
+let timer;
 
 /*------------------------ Cached Element References ------------------------*/
 
-const card = document.querySelectorAll('.card');
+const cardContainer = document.querySelectorAll('cardContainer');
 const resultDisplayEl = document.querySelector('#result-display');
-const livesDisplay = document.getElementById('lives');
 const restartButton = document.getElementById('restartButton');
 
 /*-------------------------------- Functions --------------------------------*/
 
 function init() {
-    game = shuffle(possibleMatches);
-    createBoard();
+    matchedPairs = 0;
+    timeLeft = 15;
+    lockBoard = false;
+    cardContainer.innerHTML = '';
+    const game = shuffle(possibleMatches);
+    createBoard(game);
+
+    startTimer();
 }
 
 function shuffle(array) {
@@ -42,19 +48,21 @@ function createBoard() {
         const card = document.createElement('div');
         card.classList.add('card');
         card.setAttribute('data-card', match);
-        card.innerHTML = `<img src="" alt="${match}" />`;
+        card.innerHTML = `<img src="images/" alt="${match}" />`;
         card.addEventListener('click', flippedCard);
         // cardContainer.appendChild(card);
     });
 }
 
-function flippedCard() {
+function flippedCard(cards) {
+    possibleMatches.forEach(flipCard);
     if (lockBoard) return;
     if (this === firstCard) return;
 
     this.classList.add('flipped');
     const card = this.querySelector('card');
-    card.src = `path/to/images/${this.getAttribute('data-card')}.png`;
+    img.src = "images"
+    // card.src = `path/to/images/${this.getAttribute('data-card')}.png`;
     // card.textContent = this.getAttribute('data-card');
 
     if (!firstCard) {
@@ -91,17 +99,19 @@ function resetCards() {
     [firstCard, secondCard] = [null, null];
     lockBoard = false;
 }
+function startTimer() {
+    clearInterval(timer);
 
-let countdownTimer = 15;
-const timer = setInterval(() => {
-    timeLeft--;
-    document.getElementById('countdown-timer').textContent = timeLeft;
-    if (timeLeft <= 0) {
-        clearInterval(timer);
-        alert('Time is up! Game over!');
-        location.reload(); // Reload the page to reset the game
-    }
-}, 1000);
+    timer = setInterval(() => {
+        timeLeft--;
+        document.getElementById('countdown-timer').textContent = timeLeft;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            alert('Time is up! Game over!');
+            location.reload(); // Reload the page to reset the game
+        }
+    }, 1000);
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     init();
